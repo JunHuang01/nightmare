@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         else {
             anim.SetFloat("Speed", 0);
+            moveDirection = new Vector3(0, 0, 0);
         }
 
         controller.Move(moveDirection * Time.deltaTime);
