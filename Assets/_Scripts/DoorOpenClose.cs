@@ -15,6 +15,7 @@ public class DoorOpenClose : MonoBehaviour {
     private GameObject player;
 
     private bool isPlayerNear;
+    private BoxCollider doorCollider;
 
     //Initialize variables
     void Awake() { 
@@ -22,10 +23,12 @@ public class DoorOpenClose : MonoBehaviour {
         newPosition = RotatingAxisTransform.eulerAngles;
         player = GameObject.FindGameObjectWithTag(Tags.player);
         isPlayerNear = false;
+        //doorCollider = GetComponent<BoxCollider>();
+        
     }
 
     void Update() {
-
+        
     }
 
     void FixedUpdate() {
@@ -42,7 +45,6 @@ public class DoorOpenClose : MonoBehaviour {
 
 
     void OnTriggerEnter(Collider other) {
-
         if (other.gameObject == player) {
             isPlayerNear = true;
         }
@@ -53,6 +55,14 @@ public class DoorOpenClose : MonoBehaviour {
         if (other.gameObject == player)
         {
             isPlayerNear = false;
+        }
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject == player) {
+            Debug.Log("col happened!");
+            StopCoroutine("DoorPositionChange");
         }
     }
 
