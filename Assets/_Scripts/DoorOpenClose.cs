@@ -42,6 +42,7 @@ public class DoorOpenClose : MonoBehaviour {
 
 
     void OnTriggerEnter(Collider other) {
+
         if (other.gameObject == player) {
             isPlayerNear = true;
         }
