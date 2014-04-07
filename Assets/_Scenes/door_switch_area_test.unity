@@ -837,6 +837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smooth: 2
+  fieldOfViewAngle: 360
 --- !u!136 &880079854
 CapsuleCollider:
   m_ObjectHideFlags: 0
