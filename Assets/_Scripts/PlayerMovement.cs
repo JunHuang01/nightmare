@@ -5,6 +5,10 @@ public class PlayerMovement : MonoBehaviour {
     public float Speed;
     public float turnSmoothing;
     public float speedDampTime = 0.1f;
+    public float nextFire;
+    public float fireRate = 1f;
+    public Transform shotSpawn;
+    public GameObject waterBullet;
 
     private Animator anim;
     private Vector3 moveDirection = Vector3.zero;
@@ -21,7 +25,10 @@ public class PlayerMovement : MonoBehaviour {
 
         MovementManagement(horMovement, verMovement);
 
-		//anim ["idle"].speed = 0.1f;
+        if (Input.GetButton("Fire1") && Time.time > nextFire) {
+            nextFire = Time.time + fireRate;
+            Instantiate(waterBullet, shotSpawn.position, shotSpawn.rotation);
+        }
     }
 
     void MovementManagement(float horMovement, float verMovement) {

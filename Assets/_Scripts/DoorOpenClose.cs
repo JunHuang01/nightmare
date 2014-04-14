@@ -17,8 +17,8 @@ public class DoorOpenClose : MonoBehaviour {
     private bool isPlayerNear;
     private BoxCollider doorCollider;
     private Vector3 transformDirection;
-    private Vector3 transformDirection2;
-    private Vector3 transformDirection3;
+
+
     private Vector3 transformToLeft;
     
     private bool isPlayerInPath;
@@ -31,8 +31,7 @@ public class DoorOpenClose : MonoBehaviour {
         isPlayerNear = false;
         //doorCollider = GetComponent<BoxCollider>();
         transformDirection = new Vector3();
-        transformDirection2 = new Vector3();
-        transformDirection3 = new Vector3();
+
         isPlayerInPath = false;
         transformToLeft = new Vector3(-1*0.5f, 0f, 0f);
         Debug.Log(collider.bounds.size.x);
@@ -90,8 +89,8 @@ public class DoorOpenClose : MonoBehaviour {
 
 
     void SetTransformDirection() {
-        Vector3 LeftEdgePoint = transform.TransformPoint(transformToLeft);
-        Transform tempTransform = transform;
+
+
         if (bIsDoorOpen)
         {
             transformDirection = transform.parent.TransformDirection(0, 0, 1);

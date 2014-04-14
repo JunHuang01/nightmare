@@ -429,6 +429,10 @@ MonoBehaviour:
   Speed: 0
   turnSmoothing: 15
   speedDampTime: .100000001
+  nextFire: 0
+  fireRate: 1
+  shotSpawn: {fileID: 0}
+  waterBullet: {fileID: 0}
 --- !u!54 &1032403107
 Rigidbody:
   m_ObjectHideFlags: 0
