@@ -10670,6 +10670,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20b1806e460803f43bde0ca079c078d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayerSighted: 0
+  playerLastSightPos: {x: 0, y: 0, z: 0}
+  playerNotSightedPos: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
 --- !u!23 &497029775
 Renderer:
   m_ObjectHideFlags: 0
@@ -12244,6 +12248,10 @@ MonoBehaviour:
   Speed: .5
   turnSmoothing: 5
   speedDampTime: .100000001
+  nextFire: 0
+  fireRate: 1
+  shotSpawn: {fileID: 574565726}
+  waterBullet: {fileID: 100002, guid: d00aa7452a5033946b3c4b65d8d8eea5, type: 2}
 --- !u!54 &574565729
 Rigidbody:
   m_ObjectHideFlags: 0
