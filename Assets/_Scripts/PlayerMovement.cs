@@ -38,9 +38,9 @@ public class PlayerMovement : MonoBehaviour {
             transform.Rotate(0, horMovement * turnSmoothing, 0);
             moveDirection = new Vector3(0, 0, verMovement);
             moveDirection = transform.TransformDirection(moveDirection);
-            moveDirection *= 5.5f;
+            moveDirection *= 3.5f;
             //Rotating(horMovement, verMovement);
-            anim.SetFloat("Speed", 5.5f, speedDampTime, Time.deltaTime);
+            anim.SetFloat("Speed", 3.5f, speedDampTime, Time.deltaTime);
         }
         else {
             anim.SetFloat("Speed", 0);
