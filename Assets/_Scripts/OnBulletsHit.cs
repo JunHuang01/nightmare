@@ -1,13 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-public class DestroyOnImpact : MonoBehaviour {
+public class OnBulletsHit : MonoBehaviour {
 
-
-	void OnCollisionEnter (Collision col)
-	{
-		Destroy (gameObject);
-	}
 	// Use this for initialization
 	void Start () {
 	
@@ -15,8 +10,6 @@ public class DestroyOnImpact : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+	
 	}
-
-
 }

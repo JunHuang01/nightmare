@@ -6,6 +6,7 @@ public class EnemyAI : MonoBehaviour
 
     public float chaseSpeed = 5.0f; // enemy chasing speed
     public float patrollSpeed = 2.0f; //enemy patroll speed
+    public float currSpeed = 0f;
     public Transform[] wayPoints; //array that holds all the way points
 
     public bool shouldPatrol = true; //should the enemy patroll
@@ -16,6 +17,7 @@ public class EnemyAI : MonoBehaviour
 
     private bool isPlayerSighted;
 
+   
     private Vector3 playerNotSightedPos; //a abitary number when player is not in sight.
     private NavMeshAgent navAgent; 
     private Transform playerTransform; //player's transform info
@@ -24,10 +26,24 @@ public class EnemyAI : MonoBehaviour
     private int wayPointIndex; //index of which way point enemy is on
     private float stoppingDistance = 0.05f; //enemy stopping distance
 
+    //reference to player and enemy stats;
+    private EnemyStats enemyStats;
+    private PlayerStats playerStats;
 
+    //reference to player object 
     private GameObject player;
 
-    //initialize varibles on start
+    //reference to enemy animator
+    private Animator anim;
+
+    //timer to track when was the last enemy attack
+    private float enemyLastAttackTime;
+
+    enum EnemyActionState { Idle, Moving, Attaccking, doneAttacking };
+
+    EnemyActionState actState;
+
+
     void Awake()
     {
         isPlayerSighted = false; 
@@ -35,7 +51,12 @@ public class EnemyAI : MonoBehaviour
         playerTransform = player.transform;
         playerNotSightedPos = new Vector3(99999f, 99999f, 99999f);
         navAgent = GetComponent<NavMeshAgent>();
+        enemyStats = GetComponent<EnemyStats>();
+        playerStats = GetComponent<PlayerStats>();
+        anim = GetComponent<Animator>();
+        currSpeed = navAgent.speed;
 
+        actState = EnemyActionState.Idle;
 
     }
 
@@ -58,17 +79,40 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-
-        OnPlayerSighted();
+        
+        currSpeed = navAgent.speed;
+        //OnPlayerSighted();
 
         //When player is sighted and the enemy should chase, then cahse player otherwise if the enemy should patroll then patroll
         if (isPlayerSighted && shouldChase)
             Chase();
         else if (shouldPatrol)
             Patrolling();
+        else
+            actState = EnemyActionState.Idle;
+
+        updateEnemyAnim();
+        
 
     }
 
+    //update enemy animation according to action state
+    void updateEnemyAnim() {
+        if (actState == EnemyActionState.Attaccking) {
+            anim.SetFloat("Speed", 0f);
+            anim.SetBool("isAttacking", true);
+        }
+        else if (actState == EnemyActionState.Moving)
+        {
+            anim.SetFloat("Speed", 3.5f);
+            anim.SetBool("isAttacking", false);
+        }
+        else if (actState == EnemyActionState.Idle)
+        {
+            anim.SetFloat("Speed", 0f);
+            anim.SetBool("isAttacking", false);
+        }
+    }
     //ToDo: rewrite this function for proper Enemy Response
     void OnPlayerSighted()
     {
@@ -86,6 +130,22 @@ public class EnemyAI : MonoBehaviour
 
     void Chase()
     {
+        if (gameObject.tag == Tags.CandleEnemy)
+        {
+            if (navAgent.remainingDistance > navAgent.stoppingDistance)
+                actState = EnemyActionState.Moving;
+            else
+                actState = EnemyActionState.Attaccking;
+        }
+        else
+        {
+            if (navAgent.speed >= 2.0f)
+                actState = EnemyActionState.Moving;
+            else if (navAgent.speed < 2.0f)
+                actState = EnemyActionState.Idle;
+        }
+        
+
         //Get the player's direction and distance from enemy
         Vector3 playerPosDelta = playerLastSightPos - transform.position;
 
@@ -95,13 +155,29 @@ public class EnemyAI : MonoBehaviour
 
         //set chase speed of enemy
         navAgent.speed = chaseSpeed;
-
-        //Todo: rewrite following to define what happens when monster get close to player
-        if (navAgent.remainingDistance < stoppingDistance)
-        {
-            renderer.material.color = Color.green;
-        }
+        AttackPlayer();
     }
+
+    void AttackPlayer() {
+        //when enemy get close to player attack player
+        if (navAgent.remainingDistance < navAgent.stoppingDistance && Time.time > enemyLastAttackTime)
+        {
+
+            enemyLastAttackTime = Time.time + GlobalConstant.nextEnemyAttackRate;
+
+            //if the enemy is Candle enemy set attack animation
+            if (this.gameObject.tag == Tags.CandleEnemy)
+            {
+
+                actState = EnemyActionState.Attaccking;
+            }
+
+            //player will be attacked by the enemy
+            enemyStats.StartEnemyAttack();
+        }
+
+    }
+
 
     void Patrolling()
     {
@@ -111,10 +187,13 @@ public class EnemyAI : MonoBehaviour
         //Patrol routine, change to next way point once reached a way point.
         if (navAgent.remainingDistance < stoppingDistance)
         {
+            //set action state to idle
+            actState = EnemyActionState.Idle;
+
             //increase timer of how long enemy has been at way point
             patrollTimer += Time.deltaTime;
 
-            print(patrollTimer);
+            //print(patrollTimer);
             //if enemy has been waiting at the way point enough time, then move to next way point in line
             if (patrollTimer >= patrollWaitTime)
             {
@@ -128,6 +207,8 @@ public class EnemyAI : MonoBehaviour
             }
 
         }
+        else
+            actState = EnemyActionState.Moving;
 
         //transform enemy to new way point.
         navAgent.destination = wayPoints[wayPointIndex].position;

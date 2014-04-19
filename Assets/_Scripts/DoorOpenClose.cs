@@ -129,7 +129,7 @@ public class DoorOpenClose : MonoBehaviour {
             if (hit.collider.gameObject == player)
             {
                 //Debug.Log("col happened!");
-                print("ray right hit");
+                //print("ray right hit");
                 isPlayerInPath = true;
                 Debug.DrawRay(transform.parent.position + transform.up, transformDirection.normalized * 10, Color.green);
             }
@@ -151,7 +151,7 @@ public class DoorOpenClose : MonoBehaviour {
             if (hit2.collider.gameObject == player)
             {
                 //Debug.Log("col happened!");
-                print("ray left hit");
+                //print("ray left hit");
                 isPlayerInPath = true;
                 Debug.DrawRay(LeftEdgePoint + transform.up, transformDirection.normalized * 10, Color.green);
             }
@@ -170,7 +170,7 @@ public class DoorOpenClose : MonoBehaviour {
             //If the raycast hits the player indicate that player is in path otherwise no;
             if (hit3.collider.gameObject == player)
             {
-                print("ray middle hit");
+                //print("ray middle hit");
                 //Debug.Log("col happened!");
                 isPlayerInPath = true;
                 //Debug.DrawRay(transform.position + transform.up, transformDirection.normalized * 10, Color.green);

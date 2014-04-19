@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
     public float turnSmoothing; // how long does it take foor player to turn
     public float speedDampTime = 0.1f; // how much time the speed is damped
     public float nextFire; //track when is the next fire
-    public float fireRate = 1f; // how long between each shot can be fired
+   
     public Transform shotSpawn; //position of where the bullets spawned
     public GameObject waterBullet; //bullet object that will be spawned
 
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetButton("Fire1") && Time.time > nextFire) {
 
             // keep track of when can you fire the next bullet 
-            nextFire = Time.time + fireRate; 
+            nextFire = Time.time + GlobalConstant.nextPlayerFireRate;
 
             //spawn the bullet
             Instantiate(waterBullet, shotSpawn.position, shotSpawn.rotation);  
