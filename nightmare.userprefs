@@ -1,9 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Hidden.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/WinZoneScript.cs">
     <Files>
-      <File FileName="Assets/_Scripts/WinZoneScript.cs" Line="13" Column="4" />
       <File FileName="Assets/Hidden.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/WinZoneScript.cs" Line="32" Column="2" />
+      <File FileName="Assets/_Scripts/DoorOpenClose.cs" Line="131" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
