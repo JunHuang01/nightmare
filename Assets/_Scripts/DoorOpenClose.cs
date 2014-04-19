@@ -47,7 +47,7 @@ public class DoorOpenClose : MonoBehaviour {
         transformToLeft = new Vector3(-1*0.5f, 0f, 0f);
         
         
-        Debug.Log(collider.bounds.size.x);
+        //Debug.Log(collider.bounds.size.x);
     }
 
     void Update() {
@@ -173,13 +173,13 @@ public class DoorOpenClose : MonoBehaviour {
                 //print("ray middle hit");
                 //Debug.Log("col happened!");
                 isPlayerInPath = true;
-                Debug.DrawRay(transform.position + transform.up, transformDirection.normalized * 10, Color.green);
+                //Debug.DrawRay(transform.position + transform.up, transformDirection.normalized * 10, Color.green);
             }
             else
             {
                 isPlayerInPath = false;
                 //print("is in view angle");
-                Debug.DrawRay(transform.position + transform.up, transformDirection.normalized * 10, Color.red);
+                //Debug.DrawRay(transform.position + transform.up, transformDirection.normalized * 10, Color.red);
             }
         }
     }
@@ -217,7 +217,7 @@ public class DoorOpenClose : MonoBehaviour {
             //get left edge of the door
             Vector3 LeftEdgePoint = transform.TransformPoint(transformToLeft);
             Debug.DrawRay(LeftEdgePoint + transform.up, transformDirection.normalized * 10, Color.blue);
-            Debug.Log(isPlayerInPath);
+            //Debug.Log(isPlayerInPath);
             
             //finish the door open and close operation over time
             SetTransformDirection();
