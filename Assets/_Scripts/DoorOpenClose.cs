@@ -47,7 +47,7 @@ public class DoorOpenClose : MonoBehaviour {
         transformToLeft = new Vector3(-1*0.5f, 0f, 0f);
         
         
-        Debug.Log(collider.bounds.size.x);
+        //Debug.Log(collider.bounds.size.x);
     }
 
     void Update() {
@@ -124,7 +124,7 @@ public class DoorOpenClose : MonoBehaviour {
         //cast a ray to see which object hit first, results is stored in hit
         if (Physics.Raycast(transform.parent.position + transform.up, transformDirection.normalized * 10, out hit))
         {
-            Debug.Log(hit.collider.gameObject);
+            //Debug.Log(hit.collider.gameObject);
             //If the raycast hits the player indicate that player is in path otherwise no;
             if (hit.collider.gameObject == player)
             {
@@ -146,7 +146,7 @@ public class DoorOpenClose : MonoBehaviour {
         //cast a ray to see which object hit first, results is stored in hit
         if (Physics.Raycast(LeftEdgePoint + transform.up, transformDirection.normalized * 10, out hit2))
         {
-            Debug.Log(hit2.collider.gameObject);
+            //Debug.Log(hit2.collider.gameObject);
             //If the raycast hits the player indicate that player is in path otherwise no;
             if (hit2.collider.gameObject == player)
             {
@@ -166,20 +166,20 @@ public class DoorOpenClose : MonoBehaviour {
         //cast a ray to see which object hit first, results is stored in hit
         if (Physics.Raycast(transform.position + transform.up, transformDirection.normalized * 10, out hit3))
         {
-            Debug.Log(hit3.collider.gameObject);
+            //Debug.Log(hit3.collider.gameObject);
             //If the raycast hits the player indicate that player is in path otherwise no;
             if (hit3.collider.gameObject == player)
             {
                 print("ray middle hit");
                 //Debug.Log("col happened!");
                 isPlayerInPath = true;
-                Debug.DrawRay(transform.position + transform.up, transformDirection.normalized * 10, Color.green);
+                //Debug.DrawRay(transform.position + transform.up, transformDirection.normalized * 10, Color.green);
             }
             else
             {
                 isPlayerInPath = false;
                 //print("is in view angle");
-                Debug.DrawRay(transform.position + transform.up, transformDirection.normalized * 10, Color.red);
+                //Debug.DrawRay(transform.position + transform.up, transformDirection.normalized * 10, Color.red);
             }
         }
     }
@@ -217,7 +217,7 @@ public class DoorOpenClose : MonoBehaviour {
             //get left edge of the door
             Vector3 LeftEdgePoint = transform.TransformPoint(transformToLeft);
             Debug.DrawRay(LeftEdgePoint + transform.up, transformDirection.normalized * 10, Color.blue);
-            Debug.Log(isPlayerInPath);
+            //Debug.Log(isPlayerInPath);
             
             //finish the door open and close operation over time
             SetTransformDirection();
