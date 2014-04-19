@@ -1,13 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Destroy.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Hidden.cs">
     <Files>
-      <File FileName="Assets/_Scripts/PlayerMovement.cs" Line="30" Column="36" />
-      <File FileName="Assets/_Scripts/Mover.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Scripts/DoorOpenClose.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Scripts/healthbar.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Scripts/enemymovement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Destroy.cs" Line="8" Column="41" />
+      <File FileName="Assets/_Scripts/WinZoneScript.cs" Line="13" Column="4" />
+      <File FileName="Assets/Hidden.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
