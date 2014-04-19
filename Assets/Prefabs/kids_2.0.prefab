@@ -423,6 +423,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 143: {fileID: 14300000}
   - 136: {fileID: 13600000}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: kids_2.0
   m_TagString: Player
@@ -848,6 +849,18 @@ MonoBehaviour:
   fireRate: 1
   shotSpawn: {fileID: 400000}
   waterBullet: {fileID: 100002, guid: d00aa7452a5033946b3c4b65d8d8eea5, type: 2}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43658a05933e3423e80feabe78105dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currHp: 100
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

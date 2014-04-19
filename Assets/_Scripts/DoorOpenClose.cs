@@ -124,12 +124,12 @@ public class DoorOpenClose : MonoBehaviour {
         //cast a ray to see which object hit first, results is stored in hit
         if (Physics.Raycast(transform.parent.position + transform.up, transformDirection.normalized * 10, out hit))
         {
-            Debug.Log(hit.collider.gameObject);
+            //Debug.Log(hit.collider.gameObject);
             //If the raycast hits the player indicate that player is in path otherwise no;
             if (hit.collider.gameObject == player)
             {
                 //Debug.Log("col happened!");
-                print("ray right hit");
+                //print("ray right hit");
                 isPlayerInPath = true;
                 Debug.DrawRay(transform.parent.position + transform.up, transformDirection.normalized * 10, Color.green);
             }
@@ -146,12 +146,12 @@ public class DoorOpenClose : MonoBehaviour {
         //cast a ray to see which object hit first, results is stored in hit
         if (Physics.Raycast(LeftEdgePoint + transform.up, transformDirection.normalized * 10, out hit2))
         {
-            Debug.Log(hit2.collider.gameObject);
+            //Debug.Log(hit2.collider.gameObject);
             //If the raycast hits the player indicate that player is in path otherwise no;
             if (hit2.collider.gameObject == player)
             {
                 //Debug.Log("col happened!");
-                print("ray left hit");
+                //print("ray left hit");
                 isPlayerInPath = true;
                 Debug.DrawRay(LeftEdgePoint + transform.up, transformDirection.normalized * 10, Color.green);
             }
@@ -166,11 +166,11 @@ public class DoorOpenClose : MonoBehaviour {
         //cast a ray to see which object hit first, results is stored in hit
         if (Physics.Raycast(transform.position + transform.up, transformDirection.normalized * 10, out hit3))
         {
-            Debug.Log(hit3.collider.gameObject);
+            //Debug.Log(hit3.collider.gameObject);
             //If the raycast hits the player indicate that player is in path otherwise no;
             if (hit3.collider.gameObject == player)
             {
-                print("ray middle hit");
+                //print("ray middle hit");
                 //Debug.Log("col happened!");
                 isPlayerInPath = true;
                 Debug.DrawRay(transform.position + transform.up, transformDirection.normalized * 10, Color.green);
