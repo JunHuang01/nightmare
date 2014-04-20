@@ -36,6 +36,8 @@ public class PlayerStats : MonoBehaviour {
 
         if (Health <= 0) {
             playerAnim.SetBool("isDead", true);
+
+            Application.LoadLevel(Application.loadedLevel);
         }
     }
 

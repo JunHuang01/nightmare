@@ -19,15 +19,18 @@ public class WinZoneScript : MonoBehaviour {
 
 	}
 
+
 	void Update(){
 		if(entered){
 			winText.SetActive(true); 
 			Time.timeScale = 0;
-		}
-		if (Input.GetKeyDown ("space")) {
-			Application.Quit();
-		}
-	
+
+
+            if (Input.GetKeyDown("space"))
+            {
+                Application.Quit();
+            }
+		}	
 	}
 
 }
