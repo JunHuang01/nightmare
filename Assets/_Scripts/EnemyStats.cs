@@ -7,7 +7,7 @@ public class EnemyStats : MonoBehaviour {
     public int Health = 30;
 
     private bool isAttaccking = false;
-    private EnemyAI EnemyAIScript;
+    //private EnemyAI EnemyAIScript;
     private PlayerStats playerStats;
     private GameObject player;
 	// Use this for initialization
@@ -17,7 +17,7 @@ public class EnemyStats : MonoBehaviour {
 
     void Awake() {
         //refernece the enemy AI script;
-        EnemyAIScript = GetComponent<EnemyAI>();
+        //EnemyAIScript = GetComponent<EnemyAI>();
 
         //reference to the player object
         player = GameObject.FindGameObjectWithTag(Tags.player);
