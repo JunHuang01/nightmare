@@ -43,7 +43,7 @@ Transition:
   m_TransitionDuration: .100000001
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 3
     m_ConditionEvent: Speed
     m_EventTreshold: 2
     m_ExitTime: .899999976
@@ -73,11 +73,11 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Idle
+  m_Name: PillowIdle
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 0}
+  - {fileID: 7400004, guid: ba91a371b32664042b729f707a8cf600, type: 3}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 12, y: -84, z: 0}
   m_IKOnFeet: 0
@@ -88,14 +88,14 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Moving
-  m_Speed: 1
+  m_Name: PillowMoving
+  m_Speed: 5
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 0}
+  - {fileID: 7400002, guid: ba91a371b32664042b729f707a8cf600, type: 3}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 264, y: -84, z: 0}
-  m_IKOnFeet: 0
+  m_IKOnFeet: 1
   m_Mirror: 0
   m_Tag: 
 --- !u!1107 &110700000
@@ -113,13 +113,13 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110215826}
-      second:
-      - {fileID: 110110232}
-    data:
       first: {fileID: 110200000}
       second:
       - {fileID: 110100000}
+    data:
+      first: {fileID: 110215826}
+      second:
+      - {fileID: 110110232}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
