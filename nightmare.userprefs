@@ -1,11 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/DestroyOnImpact.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/PlayerStats.cs">
     <Files>
-      <File FileName="Assets/Hidden.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Scripts/WinZoneScript.cs" Line="11" Column="1" />
-      <File FileName="Assets/_Scripts/DoorOpenClose.cs" Line="131" Column="24" />
-      <File FileName="Assets/DestroyOnImpact.cs" Line="14" Column="3" />
+      <File FileName="Assets/_Scripts/PlayerStats.cs" Line="37" Column="12" />
+      <File FileName="Assets/_Scripts/PlayerHealthBar.cs" Line="14" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

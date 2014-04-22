@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerStats : MonoBehaviour {
     public int AttackDemmage = 10;
     public int Health = 100;
-
+	public int timer = 0;
     private PlayerHealthBar playerHealthBar;
     private GameObject player;
     private Animator playerAnim;
@@ -32,6 +32,11 @@ public class PlayerStats : MonoBehaviour {
     void updatePlayerStatus() {
 
         //update this to player health bar
+		timer++;
+		if (timer > 100) {
+			Health++;
+			timer = 0;
+		}
         playerHealthBar.AdjustHealth(Health);
 
         if (Health <= 0) {
