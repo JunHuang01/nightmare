@@ -6,7 +6,6 @@ public class PlayerHealthBar : MonoBehaviour
 
     private int maxHp = 100;
     public int currHp = 100;
-
     private float BarLength;
 
     // Use this for initialization
