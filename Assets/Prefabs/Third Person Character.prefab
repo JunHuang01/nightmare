@@ -884,6 +884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDemmage: 10
+  MaxHealth: 100
   Health: 100
   timer: 0
 --- !u!136 &13600000
