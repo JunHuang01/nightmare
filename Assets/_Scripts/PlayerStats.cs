@@ -3,7 +3,8 @@ using System.Collections;
 
 public class PlayerStats : MonoBehaviour {
     public int AttackDemmage = 10;
-    public int Health = 100;
+    public int MaxHealth = 100;
+    public int Health;
 	public int timer = 0;
     private PlayerHealthBar playerHealthBar;
     private GameObject player;
@@ -17,6 +18,8 @@ public class PlayerStats : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag(Tags.player);
 
         playerAnim = player.GetComponent<Animator>();
+
+        Health = MaxHealth;
 
     }
 	// Use this for initialization
@@ -33,7 +36,7 @@ public class PlayerStats : MonoBehaviour {
 
         //update this to player health bar
 		timer++;
-		if (timer > 100) {
+		if (timer > 100 && Health < MaxHealth ) {
 			Health++;
 			timer = 0;
 		}
