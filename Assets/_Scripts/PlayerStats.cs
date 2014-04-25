@@ -38,8 +38,8 @@ public class PlayerStats : MonoBehaviour {
 
         //update this to player health bar
 		timer++;
-        if (timer > 100 && Health < MaxHealth)
-        {
+
+		if (timer > 100 && Health < MaxHealth ) {
 			Health++;
 			timer = 0;
 		}
