@@ -3,11 +3,14 @@ using System.Collections;
 
 public class PlayerStats : MonoBehaviour {
     public int AttackDemmage = 10;
-    public int Health = 100;
+    public int MaxHealth = 100;
+    public int Health;
 	public int timer = 0;
+    private float deathTimer = 0.0f;
     private PlayerHealthBar playerHealthBar;
     private GameObject player;
     private Animator playerAnim;
+    public GameObject losingText;
 
     void Awake() {
         //reference player health bar script
@@ -17,6 +20,8 @@ public class PlayerStats : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag(Tags.player);
 
         playerAnim = player.GetComponent<Animator>();
+
+        Health = MaxHealth;
 
     }
 	// Use this for initialization
@@ -33,16 +38,30 @@ public class PlayerStats : MonoBehaviour {
 
         //update this to player health bar
 		timer++;
-		if (timer > 100) {
+        if (timer > 100 && Health < MaxHealth)
+        {
 			Health++;
 			timer = 0;
 		}
         playerHealthBar.AdjustHealth(Health);
 
-        if (Health <= 0) {
+        if (Health <= 0  ) {
             playerAnim.SetBool("isDead", true);
 
-            Application.LoadLevel(Application.loadedLevel);
+            if (deathTimer == 0)
+            {
+                losingText.SetActive(true);
+                deathTimer = Time.time + 3.0f;
+            }
+            
+            
+
+            if (Time.time> deathTimer)
+            {
+                deathTimer = 0.0f;
+                losingText.SetActive(false);
+                Application.LoadLevel(Application.loadedLevel);
+            }
         }
     }
 
