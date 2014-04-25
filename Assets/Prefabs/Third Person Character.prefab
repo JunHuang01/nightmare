@@ -423,6 +423,7 @@ GameObject:
   - 95: {fileID: 9500002}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400008}
   m_Layer: 9
   m_Name: Third Person Character
   m_TagString: Player
@@ -437,7 +438,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0833394974, y: .911742449, z: -.0366665125}
+  m_LocalPosition: {x: 0, y: .5, z: .699999988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400054}
@@ -887,6 +888,20 @@ MonoBehaviour:
   MaxHealth: 100
   Health: 100
   timer: 0
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc27c28dc9037f48ab2ebd9f580b775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextFire: 0
+  waterBullet: {fileID: 0}
+  shotSpawn: {fileID: 400000}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
