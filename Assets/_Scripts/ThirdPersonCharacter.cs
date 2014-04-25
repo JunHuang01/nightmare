@@ -44,6 +44,7 @@ public class ThirdPersonCharacter : MonoBehaviour {
 	float turnAmount;
 	float forwardAmount;
 	Vector3 velocity;
+	Vector3 move;
 	IComparer rayHitComparer;
 
 	// Use this for initialization
@@ -68,7 +69,7 @@ public class ThirdPersonCharacter : MonoBehaviour {
 	// The Move function is designed to be called from a separate component
 	// based on User input, or an AI control script
 	public void Move (Vector3 move, bool crouch, bool jump, Vector3 lookPos) {
-
+		this.move = move;
 		if (move.magnitude > 1) move.Normalize();
 
 		// transfer input parameters to member variables.
@@ -334,7 +335,8 @@ public class ThirdPersonCharacter : MonoBehaviour {
 
 			// we preserve the existing y part of the current velocity.
 			v.y = rigidbody.velocity.y;
-			rigidbody.velocity = v;
+
+			rigidbody.velocity = move * 2;
 		}
 	}
 	

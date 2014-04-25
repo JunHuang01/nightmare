@@ -14,7 +14,7 @@ public class DoorOpenClose : MonoBehaviour {
     private Transform RotatingAxisTransform;
     private GameObject player;
 
-    private bool isPlayerNear;
+    public bool isPlayerNear;
     private BoxCollider doorCollider;
     private Vector3 transformDirection;
 
@@ -50,6 +50,11 @@ public class DoorOpenClose : MonoBehaviour {
         //Debug.Log(collider.bounds.size.x);
     }
 
+    void OnCollisionEnter(Collision col) {
+        if (col.gameObject == player && isPlayerInPath) {
+            StopCoroutine("DoorPositionChange");
+        }
+    }
     void Update() {
 
 
@@ -69,33 +74,6 @@ public class DoorOpenClose : MonoBehaviour {
 
             //starts the door movement by the sub routine
             StartCoroutine("DoorPositionChange");
-        }
-    }
-
-
-    void OnTriggerEnter(Collider other) {
-        //whenever player get inside to the sphere collider , indicate player is near
-        if (other.gameObject == player) {
-            isPlayerNear = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        //whenever player leave the sphere collider box, indicate player is far away
-        if (other.gameObject == player)
-        {
-            isPlayerNear = false;
-        }
-    }
-
-    void OnCollisionEnter(Collision col)
-    {
-        //when player hits the door stops the door movement if player is in the path of door's moving direction.
-        if (col.gameObject == player && isPlayerInPath) {
-            StopCoroutine("DoorPositionChange");
-            
-            //print("collided");
         }
     }
 
