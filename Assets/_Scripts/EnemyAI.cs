@@ -96,7 +96,7 @@ public class EnemyAI : MonoBehaviour
         remDist = (playerLastSightPos - transform.position).sqrMagnitude;
             
         currSpeed = navAgent.speed;
-        OnPlayerSighted();
+        //OnPlayerSighted();
 
         //When player is sighted and the enemy should chase, then cahse player otherwise if the enemy should patroll then patroll
         if (isPlayerSighted && shouldChase)
