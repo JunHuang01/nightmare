@@ -126,7 +126,7 @@ QualitySettings:
     FlashPlayer: 3
     GLES Emulation: 3
     PS3: 3
-    Standalone: 3
+    Standalone: 4
     Tizen: 2
     WP8: 3
     Web: 3
