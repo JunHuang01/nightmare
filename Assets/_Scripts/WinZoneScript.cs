@@ -28,7 +28,7 @@ public class WinZoneScript : MonoBehaviour {
 
             if (Input.GetKeyDown("space"))
             {
-                Application.Quit();
+                Application.LoadLevel("MainMenu");
             }
 		}	
 	}
