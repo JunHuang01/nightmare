@@ -15,4 +15,4 @@ Level Design: Jason Hettmansperger, Jun Huang, John West
 
 Scripting: Jun Huang
 
-Music: Matthieu Keith (Not part of the team, we found his music through creative common license, you can contact him at mgkgroup@gmail.com)
+Music/Sound SFXs: Matthieu Keith (Not part of the team, we found his music through creative common license, you can contact him at mgkgroup@gmail.com)
