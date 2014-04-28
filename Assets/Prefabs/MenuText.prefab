@@ -49,7 +49,7 @@ GUIText:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: Press "ESC" to quit game
+  m_Text: Press "ESC" to return to main menu
   m_Anchor: 2
   m_Alignment: 2
   m_PixelOffset: {x: 0, y: 0}

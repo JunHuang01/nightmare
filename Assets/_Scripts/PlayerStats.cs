@@ -51,7 +51,7 @@ public class PlayerStats : MonoBehaviour {
             if (deathTimer == 0)
             {
                 losingText.SetActive(true);
-                deathTimer = Time.time + 3.0f;
+                deathTimer = Time.time + 5.0f;
             }
             
             
@@ -60,7 +60,7 @@ public class PlayerStats : MonoBehaviour {
             {
                 deathTimer = 0.0f;
                 losingText.SetActive(false);
-                Application.LoadLevel(Application.loadedLevel);
+                Application.LoadLevel("MainMenu");
             }
         }
     }

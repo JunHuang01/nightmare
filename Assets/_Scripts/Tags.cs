@@ -9,4 +9,5 @@ public class Tags : MonoBehaviour {
     public const string Door = "Door";
     public const string CandleEnemy = "Enemy_Candle";
     public const string NormalEnemy = "Enemy_Normal";
+    public const string Menu = "Menu";
 }

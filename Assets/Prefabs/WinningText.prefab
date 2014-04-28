@@ -98,7 +98,7 @@ GUIText:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: Press Spacebar to exit game
+  m_Text: Press Spacebar to return to main menu
   m_Anchor: 7
   m_Alignment: 1
   m_PixelOffset: {x: 0, y: -170}
